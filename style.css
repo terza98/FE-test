@@ -5,8 +5,8 @@ html, body{
 body {
 	height: 100vh;
 	margin: 0;
-    padding: 0;
-    vertical-align: baseline;
+  padding: 0;
+  vertical-align: baseline;
 	font-family: 'Arial', sans-serif;
 	background-color: #fff;
 }
