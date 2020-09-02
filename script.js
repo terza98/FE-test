@@ -52,23 +52,24 @@ const createHead = () => {
 
 const renderTable = (e, data) => {
 	const table = document.createElement('table');
+	//apend heading of table
 	table.appendChild(createHead());
 
 	data.map(item => {
+		//search by company name
 		item.company.name
 			.toLowerCase()
 			.includes(e.target.value.toLowerCase()) &&
 			table.appendChild(createItem(item));
 	});
+	//delete current table inside div
 	while (data_content.firstChild) {
 		data_content.removeChild(data_content.firstChild);
 	}
+	//append newly ceated table
 	data_content.appendChild(table);
 };
 
-const resolveData = (e, data) => {
-	renderTable(e, data);
-};
 let returnedFunction = debounce(function (e) {
 	fetch('https://jsonplaceholder.typicode.com/users')
 		.then(function (response) {
@@ -81,7 +82,7 @@ let returnedFunction = debounce(function (e) {
 		})
 		.then(function (data) {
 			// This is the JSON from our response
-			resolveData(e, data);
+			renderTable(e, data);
 		})
 		.catch(function (err) {
 			// There was an error
