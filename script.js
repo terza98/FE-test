@@ -1,3 +1,4 @@
+//uing ES6 so I'm not switching to strict mode
 const debounce = (func, wait) => {
 	let timeout;
 
@@ -35,13 +36,14 @@ const createItem = item => {
 const renderTable = (e, data) => {
 	const content = document.createElement('tbody');
 
+	//is data matching the current search query
 	const isMatch = string => {
 		return string
 			.toString()
 			.toLowerCase()
 			.includes(e.target.value.toLowerCase());
 	};
-	data.map(item => {
+	data.forEach(item => {
 		//search by company name, email or id
 		(isMatch(item.company.name) ||
 			isMatch(item.email) ||
@@ -57,7 +59,7 @@ const renderTable = (e, data) => {
 	table.appendChild(content);
 };
 
-let returnedFunction = debounce(function (e) {
+const fetchData = debounce(function (e) {
 	fetch('https://jsonplaceholder.typicode.com/users')
 		.then(function (response) {
 			// The API call was successful!
@@ -77,4 +79,4 @@ let returnedFunction = debounce(function (e) {
 		});
 }, 350);
 
-input.addEventListener('keyup', returnedFunction);
+input.addEventListener('input', fetchData);
