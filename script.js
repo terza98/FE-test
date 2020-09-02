@@ -1,7 +1,3 @@
-const sleep = ms => {
-	return new Promise(resolve => setTimeout(resolve, ms));
-};
-
 const debounce = (func, wait) => {
 	let timeout;
 
@@ -91,7 +87,6 @@ let returnedFunction = debounce(function (e) {
 			// There was an error
 			console.warn('Something went wrong.', err);
 		});
-	// console.log(e.target.value);
 }, 350);
 
 input.addEventListener('keyup', returnedFunction);
