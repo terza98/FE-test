@@ -193,4 +193,5 @@ table {
   .container.header{
       justify-content: center;
   }
+  .logo{padding:0;}
 }
