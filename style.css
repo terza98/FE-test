@@ -55,15 +55,86 @@ body {
 }
 .header-nav a {
     text-decoration: none;
-    padding: 1rem;
+    padding: 0.6rem;
     color: #80C4DA;
     z-index: inherit;
 }
-.searchContainer{
-    display:inline-flex;
+.searchContainer {
+    display: inline-flex;
     flex: 1 1 300px;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .searchIcon {
+    padding: 0.5rem;
+    width: 15px;
+  }
+  
+  .searchBox {
+    border: 0;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    flex: 1;
+  }
+  
+  .searchButton {
+    background: #538AC5;
+    border: 0;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0;
+  }
+.container-inner{
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+.subnav{
+    background-color: #f8f8f8;
+}
+.cta{float: right;}
+.btn{
+    background-color: #8CC63E;
+    color: white;
+    border:none;
+    border-radius: 5px;
+    font-size: 16px;
+    max-height: 33px;
+    height:33px;
+    padding: 0px 30px;
+}
+.btn:hover{
+    background-color: #fff;
+    color: #8CC63E;
+    border: 1px solid #8CC63E;
+    transition: 0.3s;
 }
 
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border-bottom: 1px solid #C3C3C3;
+    text-align: left;
+    padding: 8px;
+    font-weight: normal;
+  }
+  td{
+      color: #353535;
+  }
+  td:nth-child(odd){
+    color: #C3C3C3;
+  }
+  th{
+      font-size: 14px;
+      color: #C3C3C3;
+  }
+  
 @media all and (min-width: 600px) {
    .logo, .header-nav{
        padding: 0rem 8rem;
@@ -75,12 +146,18 @@ body {
 		position: inherit;
 	}
   .header, .header-nav {
-    -webkit-flex-flow: column wrap;
-    flex-flow: column wrap;
+    -webkit-flex-flow: wrap;
+    flex-flow: wrap;
 		align-content: center;
     padding: 0;
   }
   .logo-brand{
     width:100%;
+  }
+  .subnav .container-inner{
+      display: flex;
+  }
+  .searchContainer{
+    flex: 1 1 100px;
   }
 }
