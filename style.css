@@ -150,6 +150,11 @@ table {
       font-size: 14px;
       color: #C3C3C3;
   }
+  .searchBox{
+    /*fixing display for safari */
+    -webkit-appearance: none;
+    margin: 0;
+  }
   
   @media all and (max-width: 1200px){
     .container-inner{
