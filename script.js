@@ -14,7 +14,7 @@ const debounce = (func, wait) => {
 
 const input = document.querySelector('input');
 
-const data_content = document.querySelector('#data-content');
+const table = document.querySelector('table');
 
 const createItem = item => {
 	const wrapper = document.createElement('tr');
@@ -32,42 +32,29 @@ const createItem = item => {
 	return wrapper;
 };
 
-const createHead = () => {
-	//create th content
-	const tr = document.createElement('tr');
-
-	const id_head = document.createElement('th'),
-		name_head = document.createElement('th'),
-		email_head = document.createElement('th');
-
-	id_head.appendChild(document.createTextNode('ID'));
-	name_head.appendChild(document.createTextNode('Company Name'));
-	email_head.appendChild(document.createTextNode('Owner email'));
-
-	tr.appendChild(id_head);
-	tr.appendChild(name_head);
-	tr.appendChild(email_head);
-	return tr;
-};
-
 const renderTable = (e, data) => {
-	const table = document.createElement('table');
-	//apend heading of table
-	table.appendChild(createHead());
+	const content = document.createElement('tbody');
 
-	data.map(item => {
-		//search by company name
-		item.company.name
+	const isMatch = string => {
+		return string
+			.toString()
 			.toLowerCase()
-			.includes(e.target.value.toLowerCase()) &&
-			table.appendChild(createItem(item));
+			.includes(e.target.value.toLowerCase());
+	};
+	data.map(item => {
+		//search by company name, email or id
+		(isMatch(item.company.name) ||
+			isMatch(item.email) ||
+			isMatch(item.id)) &&
+			content.appendChild(createItem(item));
 	});
-	//delete current table inside div
-	while (data_content.firstChild) {
-		data_content.removeChild(data_content.firstChild);
+
+	//delete current tbody inside table
+	while (table.childNodes[2]) {
+		table.removeChild(table.childNodes[2]);
 	}
-	//append newly ceated table
-	data_content.appendChild(table);
+	//append newly ceated tbody
+	table.appendChild(content);
 };
 
 let returnedFunction = debounce(function (e) {
