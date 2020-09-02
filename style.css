@@ -31,9 +31,12 @@ body {
 }
 .logo {
     text-decoration: none;
-    font-size:16px;
+    font-size: 14px;
     color: #055E92;
     z-index: inherit;
+}
+.logo span{
+    letter-spacing: 1px;
 }
 .logo-brand{
     padding:1rem;
@@ -43,6 +46,15 @@ body {
 .logo-brand img{
     width:30px;
     margin-right: 10px;
+}
+.logo{
+  padding: 0rem 6.5rem;
+} 
+.header-nav{
+  padding: 0rem 8rem;
+}
+#filter-text{
+  cursor: auto;
 }
 .header nav a:hover:not(#filter-text) {
     transition: 0.3s;
@@ -56,6 +68,8 @@ body {
 .header-nav a {
     text-decoration: none;
     padding: 0.6rem;
+    letter-spacing: 1px;
+    font-size: 14px;
     color: #80C4DA;
     z-index: inherit;
 }
@@ -63,19 +77,22 @@ body {
     display: inline-flex;
     flex: 1 1 300px;
     position: relative;
-    border: 1px solid #ccc;
+    width: 300px;
+    height: 40px;
+    border: 1px solid #c4c4c4;
     border-radius: 5px;
     overflow: hidden;
   }
   
   .searchIcon {
-    padding: 0.5rem;
-    width: 15px;
+    padding: 0.8rem;
+    color: #c4c4c4;
+    background: white;
   }
   
   .searchBox {
     border: 0;
-    padding: 0.5rem 0.5rem 0.5rem 0;
+    padding: 0.5rem;
     flex: 1;
   }
   
@@ -87,7 +104,7 @@ body {
     border-radius: 0;
   }
 .container-inner{
-    max-width: 1150px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 1rem 0;
 }
@@ -101,9 +118,8 @@ body {
     border:none;
     border-radius: 5px;
     font-size: 16px;
-    max-height: 33px;
-    height:33px;
-    padding: 0px 30px;
+    height:40px;
+    padding: 0px 27px;
 }
 .btn:hover{
     background-color: #fff;
@@ -135,13 +151,12 @@ table {
       color: #C3C3C3;
   }
   
-@media all and (min-width: 600px) {
-   .logo, .header-nav{
-       padding: 0rem 8rem;
-   }
-}
-	
-@media all and (max-width: 600px) {
+  @media all and (max-width: 1200px){
+    .container-inner{
+      padding: 1rem 8rem 1rem 6.5rem;
+    }
+  }
+@media all and (max-width: 1024px) {
 	.header {
 		position: inherit;
 	}
@@ -155,9 +170,22 @@ table {
     width:100%;
   }
   .subnav .container-inner{
-      display: flex;
+      display: grid;
   }
   .searchContainer{
-    flex: 1 1 100px;
+    width: 100%;
+  }
+  .cta{
+    order: -1;
+    margin-bottom: 4%;
+  }
+  .cta .btn{
+      float: right;
+  }
+  .container-inner{
+      padding: 1rem;
+  }
+  .container.header{
+      justify-content: center;
   }
 }
